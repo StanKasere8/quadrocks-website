@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Quadrocks Contracting</title>
+<meta name="description" content="Get in touch with Quadrocks Contracting to start your construction, structural, architectural, or geotechnical engineering project.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy: #0D1B2A;
+    --steel: #4A5568;
+    --gold: #C9A84C;
+    --cream: #FAFAF8;
+    --concrete: #E8E6E1;
+    --dark-text: #1A1A2E;
+  }
+
+  *{scroll-behavior:smooth;}
+  html,body{background:var(--cream); color:var(--dark-text); font-family:'Manrope',sans-serif; font-weight:400; overflow-x:hidden;}
+  h1,h2,h3,h4,.font-display{font-family:'Syne',sans-serif;}
+  body{line-height:1.6;}
+  h1,h2,h3{line-height:1.1;}
+
+  ::selection{background: var(--gold); color: var(--navy);}
+
+  .container-max{max-width:1280px; margin-left:auto; margin-right:auto;}
+
+  .eyebrow{letter-spacing:0.14em; text-transform:uppercase; font-size:0.75rem; font-weight:700; color:var(--gold);}
+
+  #cursor-glow{
+    position:fixed; top:0; left:0; width:480px; height:480px; border-radius:50%;
+    pointer-events:none; z-index:0; transform:translate(-50%,-50%);
+    background: radial-gradient(circle, rgba(201,168,76,0.16) 0%, rgba(201,168,76,0) 70%);
+    transition: opacity .4s ease; opacity:0; will-change:transform;
+  }
+  @media (max-width: 900px){ #cursor-glow{display:none;} }
+
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s cubic-bezier(.16,.84,.44,1);}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+
+  .four-mark{display:inline-flex; align-items:center; gap:6px;}
+  .four-mark .dot{width:7px; height:7px; background:var(--gold); border-radius:1px; display:inline-block; transform:rotate(45deg);}
+
+  .btn-scale{transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease, color .3s ease;}
+  .btn-scale:hover{transform:scale(1.045); box-shadow:0 8px 24px rgba(201,168,76,0.35);}
+  .btn-scale:disabled{opacity:0.6; cursor:not-allowed; transform:none;}
+
+  .grain{position:relative;}
+  .grain::after{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  #navbar{transition: all .4s cubic-bezier(.16,.84,.44,1);}
+  #navbar.scrolled{
+    background: rgba(13,27,42,0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .nav-underline{position:relative;}
+  .nav-underline::after{
+    content:""; position:absolute; left:0; bottom:-4px; width:0%; height:1px; background:var(--gold);
+    transition: width .3s ease;
+  }
+  .nav-underline:hover::after{width:100%;}
+  .nav-active{color:var(--gold) !important;}
+  .nav-active::after{width:100%;}
+
+  .mobile-menu{transform:translateY(-100%); transition:transform .5s cubic-bezier(.16,.84,.44,1);}
+  .mobile-menu.open{transform:translateY(0);}
+  .mobile-menu a{opacity:0; transform:translateY(14px); transition: opacity .5s ease, transform .5s ease;}
+  .mobile-menu.open a{opacity:1; transform:translateY(0);}
+
+  .parallax-bg{will-change:transform;}
+
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  /* Form fields */
+  .field-label{font-size:0.8rem; font-weight:600; letter-spacing:0.03em; color:var(--dark-text); display:block; margin-bottom:8px;}
+  .field-input{
+    width:100%; padding:14px 16px; border-radius:10px; border:1.5px solid var(--concrete);
+    background:#fff; font-family:'Manrope',sans-serif; font-size:0.95rem; color:var(--dark-text);
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .field-input:focus{border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,76,0.15); outline:none;}
+  textarea.field-input{resize:vertical; min-height:130px;}
+
+  .form-status{display:none; padding:16px 18px; border-radius:10px; font-size:0.9rem; margin-top:20px;}
+  .form-status.show{display:block;}
+  .form-status.success{background:#EAF6EC; color:#1E6B34; border:1px solid #B9E3C2;}
+  .form-status.error{background:#FBEAEA; color:#9B2C2C; border:1px solid #F0B8B8;}
+
+  .spinner{
+    width:16px; height:16px; border:2px solid rgba(13,27,42,0.3); border-top-color:var(--navy);
+    border-radius:50%; display:inline-block; animation:spin .7s linear infinite; vertical-align:middle; margin-right:8px;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* honeypot - hidden from humans, visible to bots */
+  .hp-field{position:absolute; left:-9999px; opacity:0; height:0; width:0; overflow:hidden;}
+</style>
+</head>
+<body class="antialiased">
+
+<div id="cursor-glow"></div>
+
+<!-- ================= HEADER ================= -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50">
+  <div class="container-max px-6 md:px-12 flex items-center justify-between py-5">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="C:\Users\4dacc\Documents\QUADROCKS\Images\LOGO.jpg" alt="Quadrocks Contracting logo" class="h-12 w-auto" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));">
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9">
+      <a href="index.html" class="nav-underline text-white/90 text-sm font-medium">Home</a>
+      <a href="about.html" class="nav-underline text-white/90 text-sm font-medium">About</a>
+      <a href="services.html" class="nav-underline text-white/90 text-sm font-medium">Services</a>
+      <a href="projects.html" class="nav-underline text-white/90 text-sm font-medium">Projects</a>
+      <a href="#industries" class="nav-underline text-white/90 text-sm font-medium">Industries</a>
+      <a href="careers.html" class="nav-underline text-white/90 text-sm font-medium">Careers</a>
+      <a href="news.html" class="nav-underline text-white/90 text-sm font-medium">News</a>
+      <a href="contact.html" class="nav-underline nav-active text-sm font-medium">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="contact.html" class="btn-scale hidden md:inline-block rounded-full px-6 py-2.5 text-sm font-semibold text-white"
+         style="background:var(--navy); border:1.5px solid var(--gold);">Request a Quote</a>
+      <button id="menu-btn" aria-label="Open menu" class="lg:hidden text-white p-2">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile full-screen menu -->
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-8" style="background:var(--navy);">
+  <button id="menu-close" aria-label="Close menu" class="absolute top-6 right-6 text-white p-2">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" class="text-white font-display text-3xl">Home</a>
+  <a href="about.html" class="text-white font-display text-3xl">About</a>
+  <a href="services.html" class="text-white font-display text-3xl">Services</a>
+  <a href="projects.html" class="text-white font-display text-3xl">Projects</a>
+  <a href="#industries" class="text-white font-display text-3xl">Industries</a>
+  <a href="careers.html" class="text-white font-display text-3xl">Careers</a>
+  <a href="news.html" class="text-white font-display text-3xl">News</a>
+  <a href="contact.html" class="font-display text-3xl" style="color:var(--gold);">Contact</a>
+</div>
+
+<!-- ================= PAGE HERO ================= -->
+<section id="hero" class="relative flex items-end grain overflow-hidden" style="min-height:50vh;">
+  <div class="absolute inset-0 parallax-bg" id="hero-bg">
+    <img src="C:\Users\4dacc\Documents\QUADROCKS\Images\site_photo2.jpg" alt="Quadrocks Contracting team on site" class="w-full h-[120%] object-cover object-center">
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(13,27,42,0.6) 0%, rgba(13,27,42,0.65) 40%, rgba(13,27,42,0.92) 100%);"></div>
+  </div>
+  <div class="relative z-10 container-max px-6 md:px-12 pb-16 pt-40">
+    <div class="four-mark mb-6"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="eyebrow ml-2">Get In Touch</span>
+    </div>
+    <h1 class="text-white font-display font-bold text-5xl sm:text-6xl md:text-7xl max-w-3xl">
+      Let's Start <span style="color:var(--gold);">Building.</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ================= CONTACT SPLIT ================= -->
+<section class="py-28 md:py-32 px-6 md:px-12">
+  <div class="container-max grid lg:grid-cols-[1.2fr_1fr] gap-16">
+
+    <!-- Form -->
+    <div class="reveal">
+      <span class="eyebrow">Request a Quote</span>
+      <h2 class="font-display font-bold text-3xl md:text-4xl mt-3 mb-8">Tell Us About Your Project</h2>
+
+      <form id="contact-form">
+        <!-- Honeypot field - bots fill this, humans never see it -->
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="field-label" for="name">Full Name *</label>
+            <input class="field-input" type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label class="field-label" for="email">Email *</label>
+            <input class="field-input" type="email" id="email" name="email" required>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 mt-6">
+          <div>
+            <label class="field-label" for="phone">Phone *</label>
+            <input class="field-input" type="tel" id="phone" name="phone" required>
+          </div>
+          <div>
+            <label class="field-label" for="service">Service Needed *</label>
+            <select class="field-input" id="service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Construction</option>
+              <option>Structural Engineering</option>
+              <option>Architectural Design</option>
+              <option>Geotechnical Engineering</option>
+              <option>Not Sure Yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 mt-6">
+          <div>
+            <label class="field-label" for="location">Project Location</label>
+            <input class="field-input" type="text" id="location" name="location" placeholder="Town / City">
+          </div>
+          <div>
+            <label class="field-label" for="budget">Estimated Budget</label>
+            <select class="field-input" id="budget" name="budget">
+              <option value="" selected>Select a range (optional)</option>
+              <option>Under $10,000</option>
+              <option>$10,000 – $50,000</option>
+              <option>$50,000 – $150,000</option>
+              <option>$150,000+</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <label class="field-label" for="message">Project Details *</label>
+          <textarea class="field-input" id="message" name="message" required placeholder="Tell us a bit about what you're looking to build..."></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-scale mt-8 rounded-full px-8 py-4 font-semibold text-sm" style="background:var(--gold); color:var(--navy);">
+          Send Message
+        </button>
+
+        <div id="form-status" class="form-status"></div>
+      </form>
+    </div>
+
+    <!-- Details -->
+    <div class="reveal space-y-10">
+      <div>
+        <span class="eyebrow">Visit Us</span>
+        <h3 class="font-display font-bold text-2xl mt-3 mb-2">Harare, Zimbabwe</h3>
+        <p style="color:var(--steel);">Office address coming soon.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Call Us</span>
+        <h3 class="font-display font-bold text-2xl mt-3 mb-2">Contact: 0776948073</h3>
+      </div>
+      <div>
+        <span class="eyebrow">Email Us</span>
+        <h3 class="font-display font-bold text-2xl mt-3 mb-2">info@quadrocks.co.zw</h3>
+      </div>
+      <div>
+        <span class="eyebrow">Office Hours</span>
+        <p class="mt-3" style="color:var(--steel);">Monday – Friday: 8:00 AM – 5:00 PM<br>Saturday: 8:00 AM – 1:00 PM<br>Sunday: Closed</p>
+      </div>
+      <div>
+        <span class="eyebrow">Follow Us</span>
+        <div class="flex gap-4 mt-3">
+          <a href="#" aria-label="LinkedIn" class="btn-scale w-10 h-10 rounded-full flex items-center justify-center" style="background:var(--concrete); color:var(--navy);"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.05c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></a>
+          <a href="#" aria-label="Facebook" class="btn-scale w-10 h-10 rounded-full flex items-center justify-center" style="background:var(--concrete); color:var(--navy);"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.56 1.53-3.97 3.87-3.97 1.12 0 2.3.2 2.3.2v2.53h-1.3c-1.28 0-1.68.8-1.68 1.62V12h2.86l-.46 2.89h-2.4v6.98A10 10 0 0022 12z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="btn-scale w-10 h-10 rounded-full flex items-center justify-center" style="background:var(--concrete); color:var(--navy);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="X" class="btn-scale w-10 h-10 rounded-full flex items-center justify-center" style="background:var(--concrete); color:var(--navy);"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-6.8L4.5 22H1.3l8.2-9.4L1 2h7.2l5 6.2L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAP ================= -->
+<section class="reveal px-6 md:px-12 pb-28">
+  <div class="container-max">
+    <div class="mb-8">
+      <span class="eyebrow">Find Us</span>
+      <h2 class="font-display font-bold text-3xl md:text-4xl mt-3">Visit Our Office</h2>
+      <p class="mt-2" style="color:var(--steel);">Harare, Zimbabwe — full address coming soon.</p>
+    </div>
+    <div class="rounded-2xl overflow-hidden" style="border:1px solid var(--concrete);">
+      <iframe
+        title="Quadrocks Contracting location map"
+        src="https://maps.google.com/maps?q=Harare,Zimbabwe&z=11&output=embed"
+        width="100%" height="420" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="pt-20 pb-8 px-6 md:px-12" style="background:var(--navy); border-top:1px solid var(--gold);">
+  <div class="container-max grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-white/70 text-sm">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="C:\Users\4dacc\Documents\QUADROCKS\Images\LOGO.jpg" alt="Quadrocks Contracting logo" class="h-20 w-auto">
+      </div>
+      <p>Built by four. Engineering Zimbabwe's future with precision and integrity.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Services</h4>
+      <ul class="space-y-2">
+        <li><a href="services.html" class="hover:text-white">Construction</a></li>
+        <li><a href="services.html" class="hover:text-white">Structural Engineering</a></li>
+        <li><a href="services.html" class="hover:text-white">Architectural Design</a></li>
+        <li><a href="services.html" class="hover:text-white">Geotechnical Engineering</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Company</h4>
+      <ul class="space-y-2">
+        <li><a href="about.html" class="hover:text-white">About</a></li>
+        <li><a href="projects.html" class="hover:text-white">Projects</a></li>
+        <li><a href="careers.html" class="hover:text-white">Careers</a></li>
+        <li><a href="news.html" class="hover:text-white">News</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Contact</h4>
+      <ul class="space-y-2">
+        <li>Harare, Zimbabwe</li>
+        <li>Contact: 0776948073</li>
+        <li>info@quadrocks.co.zw</li>
+      </ul>
+      <div class="flex gap-3 mt-5">
+        <a href="#" aria-label="LinkedIn" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.05c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></a>
+        <a href="#" aria-label="Facebook" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.56 1.53-3.97 3.87-3.97 1.12 0 2.3.2 2.3.2v2.53h-1.3c-1.28 0-1.68.8-1.68 1.62V12h2.86l-.46 2.89h-2.4v6.98A10 10 0 0022 12z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="X" class="social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-6.8L4.5 22H1.3l8.2-9.4L1 2h7.2l5 6.2L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="container-max border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row justify-between text-white/40 text-xs gap-2">
+    <span>© 2026 Quadrocks Contracting. All rights reserved.</span>
+    <span>Built with precision by Quadrocks Contracting.</span>
+  </div>
+</footer>
+
+<script>
+  // Cursor glow
+  const glow = document.getElementById('cursor-glow');
+  window.addEventListener('mousemove', (e) => {
+    glow.style.opacity = 1;
+    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+  });
+  window.addEventListener('mouseleave', () => glow.style.opacity = 0);
+
+  // Navbar scroll behavior
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Hero parallax
+  const heroBg = document.getElementById('hero-bg');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight * 1.2){
+      requestAnimationFrame(() => {
+        heroBg.style.transform = `translateY(${y * 0.25}px)`;
+      });
+    }
+  });
+
+  // Contact form -> Formspree (AJAX, no page reload)
+  const FORM_ENDPOINT = 'https://formspree.io/f/mnjkezdn';
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+
+  function showStatus(message, type) {
+    status.textContent = message;
+    status.className = 'form-status show ' + type;
+  }
+
+  function validateForm() {
+    // Trim leading/trailing spaces on text fields
+    ['name', 'email', 'phone', 'location', 'message'].forEach(id => {
+      const field = form[id];
+      if (field) field.value = field.value.trim();
+    });
+
+    const phone = form.phone.value;
+    const phoneDigits = phone.replace(/[\s()+-]/g, '');
+    if (!/^\d{7,15}$/.test(phoneDigits)) {
+      return 'Please enter a valid phone number (7–15 digits).';
+    }
+
+    const message = form.message.value;
+    if (message.length < 20) {
+      return 'Please provide a few more details about your project (at least 20 characters).';
+    }
+
+    return null;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'form-status';
+
+    // Honeypot check - if filled, silently drop (likely a bot)
+    if (form._gotcha.value) {
+      showStatus('Thank you for contacting Quadrocks Contracting. Your enquiry has been received successfully, and one of our team members will get back to you as soon as possible.', 'success');
+      form.reset();
+      return;
+    }
+
+    const validationError = validateForm();
+    if (validationError) {
+      showStatus(validationError, 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner"></span>Sending...';
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        showStatus("Thank you for contacting Quadrocks Contracting. Your enquiry has been received successfully, and one of our team members will get back to you as soon as possible.", 'success');
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => null);
+        const msg = (data && data.errors && data.errors.map(e => e.message).join(', ')) || 'Something went wrong. Please try again or email us directly.';
+        showStatus(msg, 'error');
+      }
+    } catch (err) {
+      showStatus('Network error — please check your connection and try again.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
+</body>
+</html>

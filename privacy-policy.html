@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<title>Privacy Policy — Quadrocks Contracting</title>
+<meta name="description" content="How Quadrocks Contracting collects, uses, and protects your personal information.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy: #0D1B2A;
+    --steel: #4A5568;
+    --gold: #C9A84C;
+    --cream: #FAFAF8;
+    --concrete: #E8E6E1;
+    --dark-text: #1A1A2E;
+  }
+
+  *{scroll-behavior:smooth;}
+  html,body{background:var(--cream); color:var(--dark-text); font-family:'Manrope',sans-serif; font-weight:400; overflow-x:hidden;}
+  h1,h2,h3,h4,.font-display{font-family:'Syne',sans-serif;}
+  body{line-height:1.6;}
+  h1,h2,h3{line-height:1.1;}
+
+  ::selection{background: var(--gold); color: var(--navy);}
+  .container-max{max-width:900px; margin-left:auto; margin-right:auto;}
+  .eyebrow{letter-spacing:0.14em; text-transform:uppercase; font-size:0.75rem; font-weight:700; color:var(--gold);}
+
+  #navbar{transition: all .4s cubic-bezier(.16,.84,.44,1);}
+  #navbar.scrolled{
+    background: rgba(13,27,42,0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  }
+  .container-max-wide{max-width:1280px; margin-left:auto; margin-right:auto;}
+
+  .nav-underline{position:relative;}
+  .nav-underline::after{
+    content:""; position:absolute; left:0; bottom:-4px; width:0%; height:1px; background:var(--gold);
+    transition: width .3s ease;
+  }
+  .nav-underline:hover::after{width:100%;}
+
+  .mobile-menu{transform:translateY(-100%); transition:transform .5s cubic-bezier(.16,.84,.44,1);}
+  .mobile-menu.open{transform:translateY(0);}
+  .mobile-menu a{opacity:0; transform:translateY(14px); transition: opacity .5s ease, transform .5s ease;}
+  .mobile-menu.open a{opacity:1; transform:translateY(0);}
+
+  .btn-scale{transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease, color .3s ease;}
+  .btn-scale:hover{transform:scale(1.045); box-shadow:0 8px 24px rgba(201,168,76,0.35);}
+
+  .social-icon{
+    width:38px; height:38px; border-radius:9999px; display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); transition:all .3s ease;
+  }
+  .social-icon:hover{background:var(--gold); color:var(--navy); transform:translateY(-3px);}
+
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  .policy h2{font-size:1.5rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem;}
+  .policy h2:first-of-type{margin-top:0;}
+  .policy p{color:var(--steel); margin-bottom:1rem;}
+  .policy ul{list-style:disc; padding-left:1.4rem; color:var(--steel); margin-bottom:1rem;}
+  .policy li{margin-bottom:0.5rem;}
+  .policy a{color:var(--gold); text-decoration:underline;}
+  .policy strong{color:var(--dark-text);}
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ================= HEADER ================= -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50" style="background:var(--navy);">
+  <div class="container-max-wide px-6 md:px-12 flex items-center justify-between py-5">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/logo.png" alt="Quadrocks Contracting logo" class="h-12 w-auto" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));">
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9">
+      <a href="index.html" class="nav-underline text-white/90 text-sm font-medium">Home</a>
+      <a href="about.html" class="nav-underline text-white/90 text-sm font-medium">About</a>
+      <a href="services.html" class="nav-underline text-white/90 text-sm font-medium">Services</a>
+      <a href="projects.html" class="nav-underline text-white/90 text-sm font-medium">Projects</a>
+      <a href="#industries" class="nav-underline text-white/90 text-sm font-medium">Industries</a>
+      <a href="careers.html" class="nav-underline text-white/90 text-sm font-medium">Careers</a>
+      <a href="news.html" class="nav-underline text-white/90 text-sm font-medium">News</a>
+      <a href="contact.html" class="nav-underline text-white/90 text-sm font-medium">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="contact.html" class="btn-scale hidden md:inline-block rounded-full px-6 py-2.5 text-sm font-semibold text-white"
+         style="background:var(--navy); border:1.5px solid var(--gold);">Request a Quote</a>
+      <button id="menu-btn" aria-label="Open menu" class="lg:hidden text-white p-2">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile full-screen menu -->
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-8" style="background:var(--navy);">
+  <button id="menu-close" aria-label="Close menu" class="absolute top-6 right-6 text-white p-2">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" class="text-white font-display text-3xl">Home</a>
+  <a href="about.html" class="text-white font-display text-3xl">About</a>
+  <a href="services.html" class="text-white font-display text-3xl">Services</a>
+  <a href="projects.html" class="text-white font-display text-3xl">Projects</a>
+  <a href="#industries" class="text-white font-display text-3xl">Industries</a>
+  <a href="careers.html" class="text-white font-display text-3xl">Careers</a>
+  <a href="news.html" class="text-white font-display text-3xl">News</a>
+  <a href="contact.html" class="text-white font-display text-3xl">Contact</a>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<section class="pt-40 pb-28 px-6 md:px-8">
+  <div class="container-max">
+    <span class="eyebrow">Legal</span>
+    <h1 class="font-display font-bold text-4xl md:text-5xl mt-3 mb-3">Privacy Policy</h1>
+    <p class="text-sm mb-12" style="color:var(--steel);">Effective date: 11 July 2026</p>
+
+    <div class="policy">
+      <p>Quadrocks Contracting ("Quadrocks," "we," "us," or "our") respects your privacy and is committed to protecting the personal information you share with us through this website. This Privacy Policy explains what information we collect, why we collect it, and how it is used, in line with Zimbabwe's Cyber and Data Protection Act [Chapter 12:07].</p>
+
+      <h2>1. Who We Are</h2>
+      <p>Quadrocks Contracting is a construction, structural engineering, architectural design, and geotechnical engineering company operating in Zimbabwe. For any questions about this policy or your personal information, you can reach us at <a href="mailto:info@quadrocks.co.zw">info@quadrocks.co.zw</a>.</p>
+
+      <h2>2. Information We Collect</h2>
+      <p>We collect information you provide directly to us, including:</p>
+      <ul>
+        <li>Your name, email address, and phone number when you submit our contact/quote request form</li>
+        <li>Project details you share, such as service needed, project location, estimated budget, and message content</li>
+        <li>Your email address if you subscribe to our newsletter</li>
+      </ul>
+      <p>We do not knowingly collect sensitive personal information (such as national ID numbers or financial account details) through this website, and we ask that you avoid including such information in form submissions.</p>
+
+      <h2>3. How We Use Your Information</h2>
+      <p>We use the information you provide to:</p>
+      <ul>
+        <li>Respond to quote requests and enquiries</li>
+        <li>Communicate with you about your project</li>
+        <li>Send occasional company news or updates, only if you've subscribed to our newsletter</li>
+        <li>Improve our services and this website</li>
+      </ul>
+      <p>We process this information on the basis of your consent, given when you voluntarily submit a form on this site.</p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>This website uses a small number of third-party services to operate:</p>
+      <ul>
+        <li><strong>Formspree</strong> — processes and delivers contact form submissions to our email inbox. Formspree may temporarily store submitted data as part of delivering it to us. See <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree's Privacy Policy</a> for details.</li>
+        <li><strong>Google Maps</strong> — embedded on our Contact page to show our location. Google may collect standard technical data (such as IP address) when this map loads. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> for details.</li>
+      </ul>
+      <p>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+
+      <h2>5. Data Retention</h2>
+      <p>We retain enquiry information for as long as reasonably necessary to respond to your request and maintain business records, after which it is deleted or anonymized unless a longer retention period is required by law.</p>
+
+      <h2>6. Your Rights</h2>
+      <p>Under Zimbabwe's Cyber and Data Protection Act, you have the right to:</p>
+      <ul>
+        <li>Know what personal information we hold about you</li>
+        <li>Request correction of inaccurate information</li>
+        <li>Request deletion of your personal information</li>
+        <li>Object to how your information is processed, including for direct marketing</li>
+        <li>Withdraw consent at any time (this won't affect processing that already took place based on your prior consent)</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:info@quadrocks.co.zw">info@quadrocks.co.zw</a>. Zimbabwe's data protection authority, POTRAZ (Postal and Telecommunications Regulatory Authority of Zimbabwe), oversees compliance with the Act.</p>
+
+      <h2>7. Data Security</h2>
+      <p>We take reasonable technical and organizational measures to protect your personal information from unauthorized access, loss, or misuse. However, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security.</p>
+
+      <h2>8. Children's Privacy</h2>
+      <p>This website is intended for business use by adults seeking construction and engineering services. We do not knowingly collect personal information from children.</p>
+
+      <h2>9. Cookies</h2>
+      <p>This website does not currently use tracking or advertising cookies of its own. Third-party embeds (such as Google Maps) may set their own cookies when loaded — please refer to their respective privacy policies for details.</p>
+
+      <h2>10. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal obligations. The effective date at the top of this page will be updated accordingly.</p>
+
+      <h2>11. Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or how your information is handled, please contact us at <a href="mailto:info@quadrocks.co.zw">info@quadrocks.co.zw</a>.</p>
+
+      <p class="text-xs mt-10 pt-6" style="border-top:1px solid var(--concrete); color:var(--steel);">This policy is provided as a general template and does not constitute legal advice. Quadrocks Contracting is encouraged to have this document reviewed by a Zimbabwean legal professional to confirm full compliance with the Cyber and Data Protection Act [Chapter 12:07] and any applicable regulations before relying on it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="pt-20 pb-8 px-6 md:px-12" style="background:var(--navy); border-top:1px solid var(--gold);">
+  <div class="container-max-wide grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-white/70 text-sm">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="assets/logo.png" alt="Quadrocks Contracting logo" class="h-20 w-auto">
+      </div>
+      <p>Built by four. Engineering Zimbabwe's future with precision and integrity.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Services</h4>
+      <ul class="space-y-2">
+        <li><a href="services.html" class="hover:text-white">Construction</a></li>
+        <li><a href="services.html" class="hover:text-white">Structural Engineering</a></li>
+        <li><a href="services.html" class="hover:text-white">Architectural Design</a></li>
+        <li><a href="services.html" class="hover:text-white">Geotechnical Engineering</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Company</h4>
+      <ul class="space-y-2">
+        <li><a href="about.html" class="hover:text-white">About</a></li>
+        <li><a href="projects.html" class="hover:text-white">Projects</a></li>
+        <li><a href="careers.html" class="hover:text-white">Careers</a></li>
+        <li><a href="news.html" class="hover:text-white">News</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Contact</h4>
+      <ul class="space-y-2">
+        <li>Harare, Zimbabwe</li>
+        <li>Contact: 0776948073</li>
+        <li>info@quadrocks.co.zw</li>
+      </ul>
+      <div class="flex gap-3 mt-5">
+        <a href="#" aria-label="LinkedIn" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.05c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></a>
+        <a href="#" aria-label="Facebook" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.56 1.53-3.97 3.87-3.97 1.12 0 2.3.2 2.3.2v2.53h-1.3c-1.28 0-1.68.8-1.68 1.62V12h2.86l-.46 2.89h-2.4v6.98A10 10 0 0022 12z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="social-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="X" class="social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-6.8L4.5 22H1.3l8.2-9.4L1 2h7.2l5 6.2L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="container-max-wide border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center text-white/40 text-xs gap-2">
+    <span>© 2026 Quadrocks Contracting. All rights reserved.</span>
+    <span class="flex gap-4">
+      <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
+      <span>Built with precision by Quadrocks Contracting.</span>
+    </span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const menuBtn = document.getElementById('menu-btn');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+</script>
+</body>
+</html>
