@@ -5,7 +5,7 @@
 ### Built
 - `index.html` — full homepage per master design spec (nav, hero, statement bar, services, why-choose-us, stats, featured projects, safety/quality, leadership, testimonials, final CTA, footer)
 - Design system: Manrope + Syne, navy/gold/cream/concrete palette, glassmorphism, grain texture, gold cursor glow, scroll reveals with stagger, animated counters, parallax hero, mobile overlay menu
-- Signature visual motif: a four-diamond mark referencing the four founders behind "Quad," used near the logo and hero eyebrow
+- Signature visual motif: a four-diamond mark referencing the A Family of Four behind "Quad," used near the logo and hero eyebrow
 
 ### Real assets integrated
 - `assets/logo.png` — client logo, background removed for clean placement on dark navy header/footer
