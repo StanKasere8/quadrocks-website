@@ -7,10 +7,10 @@
 - Design system: Manrope + Syne, navy/gold/cream/concrete palette, glassmorphism, grain texture, gold cursor glow, scroll reveals with stagger, animated counters, parallax hero, mobile overlay menu
 - Signature visual motif: a four-diamond mark referencing the A Family of Four behind "Quad," used near the logo and hero eyebrow
 
-### Real assets integrated
-- `assets/logo.png` — client logo, background removed for clean placement on dark navy header/footer
-- `assets/site-photo-1.jpg`, `assets/site-photo-2.jpg` — real Quadrocks site photos (foundation brickwork), used in hero background, "Why Choose Us," and Featured Projects
-- `assets/concept-home-1.jpg`, `concept-home-2.jpg`, `concept-home-3.jpg` — architectural render concepts, currently carrying a visible **"MG Design Solutions"** watermark
+### Real images integrated
+- `images/logo.png` — client logo, background removed for clean placement on dark navy header/footer
+- `images/site-photo-1.jpg`, `images/site-photo-2.jpg` — real Quadrocks site photos (foundation brickwork), used in hero background, "Why Choose Us," and Featured Projects
+- `images/concept-home-1.jpg`, `concept-home-2.jpg`, `concept-home-3.jpg` — architectural render concepts, currently carrying a visible **"MG Design Solutions"** watermark
 
 ### Open item — action needed
 ⚠️ **Watermark on concept renders**: client confirmed using these for now, but wants unwatermarked/licensed versions later. **Before this site goes live, these need replacing** with either (a) clean versions from the rights holder, or (b) Quadrocks' own architectural renders. Tracked here so it isn't missed.
